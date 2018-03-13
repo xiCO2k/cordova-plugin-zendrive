@@ -15,6 +15,20 @@ public class ZendriveClass extends CordovaPlugin {
     String TAG = "ZendrivePlugin";
     CallbackContext _callbackContext;
 
+    @Override
+    public boolean execute(String action, JSONArray data, CallbackContext callbackContext) throws JSONException {
+
+        if (action.equals("login")) {
+            this.login(data.getString(0), data.getString(1), callbackContext);
+
+            return true;
+        } else {
+
+            return false;
+
+        }
+    }
+
     public void login(String driverId, String zendriveApplicationKey, CallbackContext callbackContext) throws JSONException
     {
         _callbackContext = callbackContext;
