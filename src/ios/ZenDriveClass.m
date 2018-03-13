@@ -8,6 +8,7 @@
     ZendriveConfiguration *configuration = [[ZendriveConfiguration alloc] init];
     configuration.applicationKey = [[command arguments] objectAtIndex:1];
     configuration.driverId = [[command arguments] objectAtIndex:0];
+    configuration.driveDetectionMode = ZendriveDriveDetectionModeAutoOFF;
 
     NSLog(@"ZenDrive OPEN!!");
 
@@ -31,8 +32,28 @@
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     }];
+}
 
+- (void)setDriverDetectionOn:(CDVInvokedUrlCommand*)command
+{
+    [Zendrive setDriveDetectionMode:ZendriveDriveDetectionModeAutoON];
 
+    CDVPluginResult* result = [CDVPluginResult
+           resultWithStatus:CDVCommandStatus_OK
+           messageAsString:@"OK"];
+
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (void)setDriverDetectionOff:(CDVInvokedUrlCommand*)command
+{
+    [Zendrive setDriveDetectionMode:ZendriveDriveDetectionModeAutoOFF];
+
+    CDVPluginResult* result = [CDVPluginResult
+           resultWithStatus:CDVCommandStatus_OK
+           messageAsString:@"OK"];
+
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
 @end
