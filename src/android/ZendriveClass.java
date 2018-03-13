@@ -22,11 +22,15 @@ public class ZendriveClass extends CordovaPlugin {
             this.login(data.getString(0), data.getString(1), callbackContext);
 
             return true;
-        } else {
-
-            return false;
-
+        } else if (action.equals("setDriverDetectionOn")) {
+            this.setDriverDetectionOn();
+            return true;
+        } else if (action.equals("setDriverDetectionOff")) {
+            this.setDriverDetectionOff();
+            return true;
         }
+
+        return false;
     }
 
     public void login(String driverId, String zendriveApplicationKey, CallbackContext callbackContext) throws JSONException
