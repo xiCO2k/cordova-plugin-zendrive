@@ -7,11 +7,16 @@ import org.apache.cordova.LOG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.apache.cordova.PluginResult;
+import android.content.Context;
 
 import com.zendrive.sdk.*;
 
 public class ZendriveClass extends CordovaPlugin {
     String TAG = "ZendrivePlguin";
+
+    private ZendriveClass(Context context) {
+        this.context = context.getApplicationContext();
+    }
 
     public void login(String driverId, String zendriveApplicationKey, CallbackContext callbackContext) throws JSONException
     {
@@ -27,7 +32,7 @@ public class ZendriveClass extends CordovaPlugin {
         // zendriveConfiguration.setDriverAttributes(driverAttributes);
 
         Zendrive.setup(
-            this.getApplicationContext(),
+            this.context,
             zendriveConfiguration,
             MyZendriveBroadcastReceiver.class,        // can be null.
             MyZendriveNotificationProvider.class,     // must be non-null.
@@ -53,7 +58,7 @@ public class ZendriveClass extends CordovaPlugin {
 
     public void setDriverDetectionOn(CallbackContext callbackContext) throws JSONException {
         // Turn on automatic drive detection in the SDK.
-        Zendrive.setZendriveDriveDetectionMode(this.getApplicationContext(), ZendriveDriveDetectionMode.AUTO_ON,
+        Zendrive.setZendriveDriveDetectionMode(this.context, ZendriveDriveDetectionMode.AUTO_ON,
             new ZendriveOperationCallback() {
                 @Override
                 public void onCompletion(ZendriveOperationResult result) {
@@ -66,7 +71,7 @@ public class ZendriveClass extends CordovaPlugin {
 
     public void setDriverDetectionOff(CallbackContext callbackContext) throws JSONException {
         // Turn off automatic drive detection in the SDK.
-        Zendrive.setZendriveDriveDetectionMode(this.getApplicationContext(), ZendriveDriveDetectionMode.AUTO_OFF,
+        Zendrive.setZendriveDriveDetectionMode(this.context, ZendriveDriveDetectionMode.AUTO_OFF,
             new ZendriveOperationCallback() {
                 @Override
                 public void onCompletion(ZendriveOperationResult result) {
