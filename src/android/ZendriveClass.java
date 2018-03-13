@@ -12,10 +12,12 @@ import android.content.Context;
 import com.zendrive.sdk.*;
 
 public class ZendriveClass extends CordovaPlugin {
-    String TAG = "ZendrivePlguin";
+    String TAG = "ZendrivePlugin";
+    CallbackContext _callbackContext;
 
     public void login(String driverId, String zendriveApplicationKey, CallbackContext callbackContext) throws JSONException
     {
+        _callbackContext = callbackContext;
         Log.d(TAG, "We are entering login");
         // ZendriveDriverAttributes driverAttributes = new ZendriveDriverAttributes();
         // driverAttributes.setFirstName("Homer");
@@ -42,12 +44,12 @@ public class ZendriveClass extends CordovaPlugin {
                     if (result.isSuccess()) {
                         Log.d(TAG, "login - Success!");
                         r = new PluginResult(PluginResult.Status.OK);
-                        CallbackContext.sendPluginResult(r);
+                        _callbackContext.sendPluginResult(r);
                     }
                     else {
                         Log.d(TAG, "login - Error!");
                         r = new PluginResult(PluginResult.Status.ERROR);
-                        CallbackContext.sendPluginResult(r);
+                        _callbackContext.sendPluginResult(r);
                     }
                 }
             }
