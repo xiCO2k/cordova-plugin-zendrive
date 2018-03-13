@@ -8,6 +8,6 @@ module.exports = {
         cordova.exec(successCallback, errorCallback, "Zendrive", "setDriverDetectionOn", []);
     },
     setDriverDetectionOff: function(successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "Zendrive", "setDriverDetectionOff" []);
+        cordova.exec(successCallback, errorCallback, "Zendrive", "setDriverDetectionOff", []);
     }
 }
