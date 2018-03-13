@@ -34,8 +34,8 @@ public class ZendriveClass extends CordovaPlugin {
         Zendrive.setup(
             context,
             zendriveConfiguration,
-            MyZendriveBroadcastReceiver.class,        // can be null.
-            MyZendriveNotificationProvider.class,     // must be non-null.
+            ZendriveBroadcastReceiver.class,        // can be null.
+            MyZendriveBroadcastReceiver.class,     // must be non-null.
             new ZendriveOperationCallback() {
                 @Override
                 public void onCompletion(ZendriveOperationResult result) {
