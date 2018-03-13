@@ -56,7 +56,7 @@ public class ZendriveClass extends CordovaPlugin {
         );
     }
 
-    public void setDriverDetectionOn(CallbackContext callbackContext) throws JSONException {
+    public void setDriverDetectionOn() throws JSONException {
         Context context = cordova.getActivity();
         // Turn on automatic drive detection in the SDK.
         Zendrive.setZendriveDriveDetectionMode(context, ZendriveDriveDetectionMode.AUTO_ON,
@@ -70,7 +70,7 @@ public class ZendriveClass extends CordovaPlugin {
         );
     }
 
-    public void setDriverDetectionOff(CallbackContext callbackContext) throws JSONException {
+    public void setDriverDetectionOff() throws JSONException {
         Context context = cordova.getActivity();
         // Turn off automatic drive detection in the SDK.
         Zendrive.setZendriveDriveDetectionMode(context, ZendriveDriveDetectionMode.AUTO_OFF,
