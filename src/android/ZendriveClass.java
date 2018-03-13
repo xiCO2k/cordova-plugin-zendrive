@@ -14,10 +14,6 @@ import com.zendrive.sdk.*;
 public class ZendriveClass extends CordovaPlugin {
     String TAG = "ZendrivePlguin";
 
-    private ZendriveClass(Context context) {
-        this.context = context.getApplicationContext();
-    }
-
     public void login(String driverId, String zendriveApplicationKey, CallbackContext callbackContext) throws JSONException
     {
         Log.d(TAG, "We are entering login");
@@ -31,8 +27,10 @@ public class ZendriveClass extends CordovaPlugin {
             zendriveApplicationKey, driverId);   // an unique id of the driver specific to your application
         // zendriveConfiguration.setDriverAttributes(driverAttributes);
 
+        Context context = cordova.getActivity();
+
         Zendrive.setup(
-            this.context,
+            context,
             zendriveConfiguration,
             MyZendriveBroadcastReceiver.class,        // can be null.
             MyZendriveNotificationProvider.class,     // must be non-null.
@@ -57,8 +55,9 @@ public class ZendriveClass extends CordovaPlugin {
     }
 
     public void setDriverDetectionOn(CallbackContext callbackContext) throws JSONException {
+        Context context = cordova.getActivity();
         // Turn on automatic drive detection in the SDK.
-        Zendrive.setZendriveDriveDetectionMode(this.context, ZendriveDriveDetectionMode.AUTO_ON,
+        Zendrive.setZendriveDriveDetectionMode(context, ZendriveDriveDetectionMode.AUTO_ON,
             new ZendriveOperationCallback() {
                 @Override
                 public void onCompletion(ZendriveOperationResult result) {
@@ -70,8 +69,9 @@ public class ZendriveClass extends CordovaPlugin {
     }
 
     public void setDriverDetectionOff(CallbackContext callbackContext) throws JSONException {
+        Context context = cordova.getActivity();
         // Turn off automatic drive detection in the SDK.
-        Zendrive.setZendriveDriveDetectionMode(this.context, ZendriveDriveDetectionMode.AUTO_OFF,
+        Zendrive.setZendriveDriveDetectionMode(context, ZendriveDriveDetectionMode.AUTO_OFF,
             new ZendriveOperationCallback() {
                 @Override
                 public void onCompletion(ZendriveOperationResult result) {
