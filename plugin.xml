@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         id="cordova-plugin-zendrive"
-        version="0.0.1">
+        version="0.0.2">
 
   <name>Zendrive</name>
 
@@ -15,16 +15,16 @@
     <clobbers target="cordova.plugins.Zendrive" />
   </js-module>
 
-  <!-- <platform name="android">
+  <platform name="android">
 
     <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="Hello">
-        <param name="android-package" value="com.example.plugin.Hello"/>
+      <feature name="ZendriveClass">
+        <param name="android-package" value="com.dryver.zendrive"/>
       </feature>
     </config-file>
 
-    <source-file src="src/android/Zendrive.java" target-dir="src/com/example/plugin/"/>
-  </platform> -->
+    <source-file src="src/android/ZendriveClass.java" target-dir="src/com/dryver/zendrive/"/>
+  </platform>
 
   <platform name="ios">
 
