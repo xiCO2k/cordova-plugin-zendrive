@@ -16,11 +16,12 @@
   </js-module>
 
   <platform name="android">
+    <framework src="com.zendrive.sdk.android:ZendriveSDK:5.2.2" />
 
     <config-file target="AndroidManifest.xml" parent="/*">
-            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        </config-file>
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    </config-file>
 
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Zendrive">
