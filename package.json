@@ -1,0 +1,15 @@
+{
+  "name": "cordova-plugin-zendrive",
+  "version": "0.0.5",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiCO2k/cordova-plugin-zendrive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiCO2k/cordova-plugin-zendrive/issues"
+  },
+  "homepage": "https://github.com/xiCO2k/cordova-plugin-zendrive#readme"
+}
