@@ -16,7 +16,7 @@
   </js-module>
 
   <platform name="android">
-    <framework src="com.zendrive.sdk.android:ZendriveSDK:5.2.2" />
+    <framework src="src/android/zendrive.gradle" custom="true" type="gradleReference"/>
 
     <config-file target="AndroidManifest.xml" parent="/*">
       <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />

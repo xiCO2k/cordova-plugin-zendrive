@@ -1,0 +1,14 @@
+android {
+    lintOptions {
+        // This is needed to avoid spurious lint errors from libthrift and log4j.
+        disable 'InvalidPackage'
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+dependencies {
+    compile 'com.zendrive.sdk.android:ZendriveSDK:5.2.2'
+}
